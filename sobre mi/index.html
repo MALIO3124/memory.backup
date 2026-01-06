@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias Mendez | Memoria Maestra v10</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500;700&family=Orbitron:wght@400;900&display=swap');
+
+        :root {
+            --neon-blue: #00f2ff;
+            --deep-blue: #0066ff;
+            --dark-space: #01040a;
+            --glass: rgba(10, 25, 47, 0.9);
+            --gold: #ffcc00;
+        }
+
+        body {
+            background-color: var(--dark-space);
+            color: #d1d1d1;
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
+
+        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
+
+        header {
+            border: 2px solid var(--neon-blue);
+            background: rgba(0, 102, 255, 0.05);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+        }
+
+        h1 { font-family: 'Orbitron', sans-serif; font-size: 3.5rem; color: var(--neon-blue); margin: 0; text-shadow: 0 0 20px var(--neon-blue); }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .panel {
+            background: var(--glass);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .panel:hover { border-color: var(--neon-blue); transform: scale(1.02); }
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+
+        h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-blue); border-bottom: 1px solid var(--deep-blue); padding-bottom: 10px; margin-top: 0; }
+
+        .highlight { color: var(--neon-blue); font-weight: bold; }
+        .gold-text { color: var(--gold); }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 5px 12px;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* SECCIONES DE INFO EXTRA */
+        .info-block { margin-bottom: 20px; padding-left: 15px; border-left: 2px solid var(--deep-blue); }
+        
+        .btn-panic {
+            grid-column: span 3;
+            background: linear-gradient(45deg, #ff0044, #880022);
+            color: white;
+            border: none;
+            padding: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-top: 40px;
+            box-shadow: 0 0 40px rgba(255, 0, 68, 0.4);
+        }
+
+        #vault {
+            display: none;
+            grid-column: span 3;
+            background: rgba(255, 0, 68, 0.1);
+            border: 2px solid #ff0044;
+            padding: 50px;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="container">
+    <header>
+        <h1>ELIAS DAVID MÉNDEZ</h1>
+        <p class="gold-text">SISTEMA DE RESPALDO DE MEMORIA DE ALTA PRIORIDAD</p>
+        <p>Río Bravo, Tamaulipas | Creador de mndz-sz-dev.vercel.app</p>
+    </header>
+
+    <div class="dashboard">
+        
+        <div class="panel span-2">
+            <h2><i class="fas fa-code"></i> PERFIL TÉCNICO COMPLETO</h2>
+            <p>Elias es un profesional con enfoque dual. Domina el <strong>Frontend</strong> (HTML, CSS, JS) y la <strong>Post-producción Digital</strong>.</p>
+            <div class="info-block">
+                <p><span class="highlight">Propósito:</span> Usar la programación para resolver problemas reales.</p>
+                <p><span class="highlight">Herramientas:</span> DaVinci Resolve para video, Canva para diseño gráfico.</p>
+                <p><span class="highlight">Inglés:</span> Nivel B1 (Capaz de entender documentación técnica).</p>
+            </div>
+            <div class="skill-tags">
+                <span class="skill-tag">JavaScript</span><span class="skill-tag">Vercel</span>
+                <span class="skill-tag">GitHub</span><span class="skill-tag">Canva</span>
+                <span class="skill-tag">DaVinci Resolve</span><span class="skill-tag">Lua</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2><i class="fas fa-dove"></i> PRINCIPIOS Y FE</h2>
+            <p class="gold-text">"La sabiduría viene de lo Alto."</p>
+            <p>Elias no se rinde. Si algo es desconocido, lo estudia hasta dominarlo. Su motor es la fe y la alegría proactiva.</p>
+            <p><i class="fas fa-shield-alt"></i> <strong>Valores:</strong> Honestidad, Excelencia y Disciplina Deportiva.</p>
+        </div>
+
+        <div class="panel">
+            <h2><i class="fas fa-home"></i> NÚCLEO Y RAÍCES</h2>
+            <p><span class="highlight">Nacimiento:</span> 15/01/2011, Río Bravo, Tam.</p>
+            <p><span class="highlight">Familia:</span> Son las personas más importantes. Su puerto seguro y apoyo incondicional.</p>
+            <p><span class="highlight">Educación:</span> Secundaria Técnica #10 (Donde forja su futuro).</p>
+        </div>
+
+        <div class="panel span-2">
+            <h2><i class="fas fa-tasks"></i> BITÁCORA DIARIA Y HOBBIES</h2>
+            <div class="info-block">
+                <p><strong>Día Normal:</strong> Secundaria en la mañana -> Comida -> Estudio de Programación (YouTube/Proyectos) -> Fútbol en la tarde.</p>
+                <p><strong>Anime:</strong> Sword Art Online (Kirito) y Kimetsu no Yaiba (Tanjiro). Admiración por la valentía.</p>
+                <p><strong>Comida:</strong> Boneless (Favorito absoluto). <span style="color:red">No Arroz.</span></p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2><i class="fas fa-heartbeat"></i> SALUD Y BIENESTAR</h2>
+            <p><span class="highlight">Estado:</span> Sano, sin alergias, con mucha energía.</p>
+            <p><span class="highlight">Paz:</span> Se encuentra en el silencio o escuchando su playlist favorita (si suena bien, se queda).</p>
+            <p><span class="highlight">Disciplina:</span> Forjada en la cancha de fútbol bajo presión.</p>
+        </div>
+
+        <button class="btn-panic" onclick="revealVault()">EJECUTAR PROTOCOLO DE RECUPERACIÓN TOTAL</button>
+
+        <div id="vault">
+            <h2><i class="fas fa-key"></i> ESTO ES LO QUE NO DEBES OLVIDAR NUNCA</h2>
+            <p>Elias David Mendez Sanchez, naciste para grandes cosas. Eres el desarrollador de <strong>mndz-sz-dev</strong>.</p>
+            <p>1. <strong>Tus Sueños:</strong> Quieres ser un Programador Profesional. Ya diste el primer paso creando tu web en Vercel.</p>
+            <p>2. <strong>Tu Carácter:</strong> Eres alegre, optimista y honesto. La gente confía en ti por tu entusiasmo.</p>
+            <p>3. <strong>Tu Gente:</strong> Tu familia es tu equipo. Si te sientes perdido, búscalos a ellos primero.</p>
+            <p>4. <strong>Tu Fortaleza:</strong> "Si no lo sabes hacer, lo aprenderás". Tienes una capacidad increíble para ser autodidacta.</p>
+            <p>5. <strong>Tu Identidad:</strong> Amas los boneless, juegas fútbol, hablas inglés B1 y siempre buscas la excelencia.</p>
+            <p class="gold-text" style="font-size: 1.5rem; text-align: center;">"La sabiduría viene de lo Alto. Sigue adelante."</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const chars = "01 ELIAS DAVID MNDZ SZ DEV SAO FE B1 BONELESS";
+    const charArr = chars.split("");
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+        ctx.fillStyle = "rgba(1, 4, 10, 0.1)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#00f2ff";
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < drops.length; i++) {
+            const text = charArr[Math.floor(Math.random() * charArr.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        }
+    }
+    setInterval(draw, 33);
+
+    function revealVault() {
+        const v = document.getElementById('vault');
+        v.style.display = 'block';
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
